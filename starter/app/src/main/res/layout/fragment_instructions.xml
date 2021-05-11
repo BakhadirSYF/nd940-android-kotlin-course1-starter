@@ -3,7 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.udacity.shoestore.WelcomeFragment">
+    tools:context="com.udacity.shoestore.InstructionsFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,15 +12,15 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/welcome_header"
+            android:id="@+id/instructions_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/header_welcome"
+            android:text="@string/header_instructions"
             android:textAlignment="center" />
 
         <TextView
-            android:id="@+id/welcome_message"
+            android:id="@+id/instructions_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -28,7 +28,7 @@
             android:paddingLeft="32dp"
             android:paddingEnd="32dp"
             android:paddingRight="32dp"
-            android:text="@string/welcome_message" />
+            android:text="@string/instructions_text" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/buttonNext"
+                android:id="@+id/instructions_next_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -48,10 +48,8 @@
                 android:layout_marginEnd="32dp"
                 android:layout_marginRight="32dp"
                 android:layout_marginBottom="32dp"
-                android:text="@string/next_button_text" />
+                android:text="@string/open_shoe_store_button_text" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </layout>
