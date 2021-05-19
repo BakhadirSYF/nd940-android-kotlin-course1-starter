@@ -15,4 +15,17 @@
     <string name="login_fragment_title">Login</string>
     <string name="welcome_fragment_title">Welcome</string>
     <string name="instructions_fragment_title">Instructions</string>
+    <string name="add_shoe_button_content_description">Add Shoe Button</string>
+    <string name="shoe_list_fragment_title">Shoes</string>
+    <string name="action_logout">Logout</string>
+    <string name="label_shoe_name">Shoe Name</string>
+    <string name="hint_shoe_name">Enter shoe name</string>
+    <string name="label_company">Company</string>
+    <string name="hint_company">Enter company</string>
+    <string name="label_shoe_size">Shoe Size</string>
+    <string name="hint_shoe_size">Enter shoe size</string>
+    <string name="label_description">Description</string>
+    <string name="hint_description">Enter description</string>
+    <string name="button_label_cancel">CANCEL</string>
+    <string name="button_label_save">SAVE</string>
 </resources>
