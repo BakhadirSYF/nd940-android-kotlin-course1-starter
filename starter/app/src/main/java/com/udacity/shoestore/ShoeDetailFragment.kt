@@ -1,6 +1,7 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import com.udacity.shoestore.helpers.CustomOnBackPressedCallback
 import com.udacity.shoestore.viewmodels.ShoeViewModel
 
 class ShoeDetailFragment : Fragment() {
+
+    lateinit var onBackPressedCallback: CustomOnBackPressedCallback
 
     private val viewModel: ShoeViewModel by activityViewModels()
 
@@ -41,6 +45,13 @@ class ShoeDetailFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
+        onBackPressedCallback = CustomOnBackPressedCallback()
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            onBackPressedCallback
+        )
+
         return binding.root
 
     }
@@ -52,9 +63,15 @@ class ShoeDetailFragment : Fragment() {
         shoeSize: String,
         description: String
     ) {
-        viewModel.addNewShoe(shoeName, company, shoeSize, description)
+//        shoeSize = if(TextUtils.isEmpty(shoeSize)) "0" else shoeSize
+        viewModel.addNewShoe(shoeName, company, if(TextUtils.isEmpty(shoeSize)) "0" else shoeSize, description)
         view.findNavController()
             .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+    }
+
+    override fun onStop() {
+        onBackPressedCallback.remove()
+        super.onStop()
     }
 
 }

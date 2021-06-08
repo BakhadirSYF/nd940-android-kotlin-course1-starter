@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
@@ -20,28 +21,20 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(findViewById(R.id.toolbar))
 
         val navController = this.findNavController(R.id.navHostFragment)
-        appBarConfiguration = AppBarConfiguration(navController.graph, null)
-        NavigationUI.setupActionBarWithNavController(this, navController)
+
+        var fragSet = mutableSetOf<Int>()
+        fragSet.add(R.id.loginFragment)
+        fragSet.add(R.id.welcomeFragment)
+        fragSet.add(R.id.instructionsFragment)
+        fragSet.add(R.id.shoeListFragment)
+        fragSet.add(R.id.shoeDetailFragment)
+
+        appBarConfiguration = AppBarConfiguration(fragSet, null)
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration)
     }
 
-    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
-        menuInflater.inflate(R.menu.menu_action_logout, menu)
-
-        return super.onCreateOptionsMenu(menu)
+    override fun onSupportNavigateUp(): Boolean {
+        return Navigation.findNavController(this, R.id.navHostFragment).navigateUp()
+                || super.onSupportNavigateUp()
     }
-
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_logout -> {
-            Timber.d("Logout clicked")
-            // User chose the "Settings" item, show the app settings UI...
-            true
-        }
-
-        else -> {
-            // If we got here, the user's action was not recognized.
-            // Invoke the superclass to handle it.
-            super.onOptionsItemSelected(item)
-        }
-    }*/
 }

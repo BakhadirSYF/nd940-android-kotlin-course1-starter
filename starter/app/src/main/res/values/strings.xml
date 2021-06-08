@@ -8,10 +8,10 @@
     <string name="button_label_sign_up">Sign Up</string>
     <string name="header_welcome">WELCOME</string>
     <string name="header_instructions">INSTRUCTIONS</string>
-    <string name="welcome_message">Welcome to the Shoe Store! Click "NEXT" button to read instructions.</string>
-    <string name="instructions_text">Instructions lives here</string>
+    <string name="welcome_message">Welcome to the Shoe Store! Click \"NEXT\" button to read instructions.</string>
+    <string name="instructions_text">1. Click \"SHOE STORE\" button to open Shoe Store \n2. In Shoe Store use \"+\" button to add new shoe \n3. Use Logout menu to exit Shoe Store</string>
     <string name="next_button_text">NEXT</string>
-    <string name="open_shoe_store_button_text">OPEN SHOE STORE</string>
+    <string name="open_shoe_store_button_text">SHOE STORE</string>
     <string name="login_fragment_title">Login</string>
     <string name="welcome_fragment_title">Welcome</string>
     <string name="instructions_fragment_title">Instructions</string>
@@ -28,4 +28,6 @@
     <string name="hint_description">Enter description</string>
     <string name="button_label_cancel">CANCEL</string>
     <string name="button_label_save">SAVE</string>
+    <string name="shoe_detail_fragment_title">Add New Shoe</string>
+    <string name="shoe_size_format">Size: %1$s</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.udacity.shoestore.viewmodels
 
+import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
