@@ -39,9 +39,4 @@ class ShoeViewModel : ViewModel() {
     fun addNewShoe(shoeName: String, company: String, shoeSize: String, description: String) {
         _shoeList.value?.add(Shoe(shoeName, shoeSize.toDouble(), company, description))
     }
-
-    // Extension function
-    /*private fun <T> MutableLiveData<T>.notifyObserver() {
-        this.value = this.value
-    }*/
 }

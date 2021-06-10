@@ -6,4 +6,8 @@
     <dimen name="onboarding_message_text_size">18sp</dimen>
     <dimen name="button_text_size">18sp</dimen>
     <dimen name="new_shoe_edit_text_margin_top">16dp</dimen>
+    <dimen name="shoe_item_company_text_size">20sp</dimen>
+    <dimen name="shoe_item_name_text_size">16sp</dimen>
+    <dimen name="shoe_item_size_text_size">12sp</dimen>
+    <dimen name="shoe_item_description_text_size">12sp</dimen>
 </resources>

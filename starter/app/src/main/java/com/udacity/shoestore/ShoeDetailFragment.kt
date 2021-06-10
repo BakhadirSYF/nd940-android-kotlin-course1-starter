@@ -35,12 +35,22 @@ class ShoeDetailFragment : Fragment() {
         }
 
         binding.saveButton.setOnClickListener { view: View ->
-            onSaveButtonClick(
-                view, binding.shoeName.text.toString(),
-                binding.company.text.toString(),
-                binding.shoeSize.text.toString(),
-                binding.description.text.toString()
-            )
+            when {
+                TextUtils.isEmpty(binding.shoeName.text.toString()) -> {
+                    binding.shoeName.error = "Please enter valid shoe name"
+                }
+                TextUtils.isEmpty(binding.shoeSize.text.toString()) -> {
+                    binding.shoeSize.error = "Please enter valid shoe size"
+                }
+                else -> {
+                    onSaveButtonClick(
+                        view, binding.shoeName.text.toString(),
+                        binding.company.text.toString(),
+                        binding.shoeSize.text.toString(),
+                        binding.description.text.toString()
+                    )
+                }
+            }
         }
 
         setHasOptionsMenu(true)
@@ -63,8 +73,12 @@ class ShoeDetailFragment : Fragment() {
         shoeSize: String,
         description: String
     ) {
-//        shoeSize = if(TextUtils.isEmpty(shoeSize)) "0" else shoeSize
-        viewModel.addNewShoe(shoeName, company, if(TextUtils.isEmpty(shoeSize)) "0" else shoeSize, description)
+        viewModel.addNewShoe(
+            shoeName,
+            if (TextUtils.isEmpty(company)) "-" else company,
+            shoeSize,
+            if (TextUtils.isEmpty(description)) "-" else description
+        )
         view.findNavController()
             .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
     }

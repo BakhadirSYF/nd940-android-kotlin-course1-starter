@@ -64,4 +64,25 @@
         <item name="android:textSize">@dimen/onboarding_message_text_size</item>
     </style>
 
+    <style name="ShoeItemCompany">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/shoe_item_company_text_size</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="ShoeItemName">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/shoe_item_name_text_size</item>
+    </style>
+
+    <style name="ShoeItemSize">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/shoe_item_size_text_size</item>
+    </style>
+
+    <style name="ShoeItemDescription">
+    <item name="android:fontFamily">@font/roboto_light</item>
+    <item name="android:textSize">@dimen/shoe_item_description_text_size</item>
+</style>
+
 </resources>
