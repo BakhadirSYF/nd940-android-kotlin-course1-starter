@@ -12,8 +12,7 @@
 
         <TextView
             android:id="@+id/shoeNameLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/NewShoeLabel"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="@string/label_shoe_name"
@@ -24,20 +23,15 @@
 
         <EditText
             android:id="@+id/shoeName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
+            style="@style/NewShoeEditText"
             android:hint="@string/hint_shoe_name"
-            android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintStart_toStartOf="@+id/shoeNameLabel"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
 
         <TextView
             android:id="@+id/companyLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/NewShoeLabel"
             android:layout_marginTop="16dp"
             android:text="@string/label_company"
             app:layout_constraintStart_toStartOf="@+id/shoeName"
@@ -45,20 +39,15 @@
 
         <EditText
             android:id="@+id/company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
+            style="@style/NewShoeEditText"
             android:hint="@string/hint_company"
-            android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintStart_toStartOf="@+id/companyLabel"
             app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
 
         <TextView
             android:id="@+id/shoeSizeLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/NewShoeLabel"
             android:layout_marginTop="16dp"
             android:text="@string/label_shoe_size"
             app:layout_constraintStart_toStartOf="@+id/company"
@@ -66,20 +55,15 @@
 
         <EditText
             android:id="@+id/shoeSize"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
+            style="@style/NewShoeEditText"
             android:hint="@string/hint_shoe_size"
-            android:importantForAutofill="no"
             android:inputType="number"
             app:layout_constraintStart_toStartOf="@+id/shoeSizeLabel"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel" />
 
         <TextView
             android:id="@+id/descriptionLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/NewShoeLabel"
             android:layout_marginTop="16dp"
             android:text="@string/label_description"
             app:layout_constraintStart_toStartOf="@+id/shoeSize"
@@ -87,18 +71,15 @@
 
         <EditText
             android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
+            style="@style/NewShoeEditText"
             android:hint="@string/hint_description"
-            android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
             app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
 
         <Button
             android:id="@+id/cancelButton"
+            style="@style/NewShoeButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -114,6 +95,7 @@
 
         <Button
             android:id="@+id/saveButton"
+            style="@style/NewShoeButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

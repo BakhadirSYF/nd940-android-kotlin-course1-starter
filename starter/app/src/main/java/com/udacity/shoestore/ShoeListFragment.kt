@@ -40,10 +40,6 @@ class ShoeListFragment : Fragment() {
                 .navigate(ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment())
         }
 
-        // Get the viewmodel
-//        viewModel = ViewModelProvider(this).get(ShoeViewModel::class.java)
-        // Specify the current activity as the lifecycle owner of the binding. This is used so that
-        // the binding can observe LiveData updates
         binding.lifecycleOwner = this
 
         viewModel.shoeList.observe(viewLifecycleOwner, Observer { list ->

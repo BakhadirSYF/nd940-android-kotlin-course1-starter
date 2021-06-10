@@ -17,10 +17,22 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="text_labels">123</style>
-
     <style name="LoginLabel">
         <item name="android:fontFamily">@font/roboto_medium</item>
+    </style>
+
+    <style name="NewShoeLabel" parent="LoginLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="NewShoeEditText" parent="NewShoeLabel">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:layout_marginTop">@dimen/new_shoe_edit_text_margin_top</item>
+        <item name="android:ems">10</item>
+    </style>
+
+    <style name="NewShoeButton" parent="LoginButton">
     </style>
 
     <style name="LoginEditText" parent="LoginLabel">

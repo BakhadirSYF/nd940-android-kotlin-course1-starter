@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NewShoeEditText" parent="NewShoeLabel">
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:layout_marginTop">@dimen/new_shoe_edit_text_margin_top</item>
+        <item name="android:ems">10</item>
+        <item name="android:importantForAutofill">no</item>
+    </style>
+</resources>

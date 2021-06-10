@@ -5,4 +5,5 @@
     <dimen name="onboarding_header_text_size">24sp</dimen>
     <dimen name="onboarding_message_text_size">18sp</dimen>
     <dimen name="button_text_size">18sp</dimen>
+    <dimen name="new_shoe_edit_text_margin_top">16dp</dimen>
 </resources>

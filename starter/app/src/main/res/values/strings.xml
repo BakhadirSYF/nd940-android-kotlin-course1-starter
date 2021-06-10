@@ -16,7 +16,7 @@
     <string name="welcome_fragment_title">Welcome</string>
     <string name="instructions_fragment_title">Instructions</string>
     <string name="add_shoe_button_content_description">Add Shoe Button</string>
-    <string name="shoe_list_fragment_title">Shoes</string>
+    <string name="shoe_list_fragment_title">Shoe Store</string>
     <string name="action_logout">Logout</string>
     <string name="label_shoe_name">Shoe Name</string>
     <string name="hint_shoe_name">Enter shoe name</string>
