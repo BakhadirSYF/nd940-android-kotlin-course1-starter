@@ -58,6 +58,7 @@ class ShoeDetailFragment : Fragment() {
                     }
                     else -> {
                         onSaveButtonClick()
+                        viewModel.onShoeSaved()
                     }
                 }
             }

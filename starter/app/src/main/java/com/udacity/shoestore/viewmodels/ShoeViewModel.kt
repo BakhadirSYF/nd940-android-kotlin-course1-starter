@@ -60,4 +60,16 @@ class ShoeViewModel : ViewModel() {
 
         _eventOnSave.value = true
     }
+
+    fun onShoeSaved() {
+        _eventOnSave.value = false
+        resetFields()
+    }
+
+    private fun resetFields() {
+        shoeName.value = ""
+        shoeCompany.value = ""
+        shoeSize.value = ""
+        shoeDescription.value = ""
+    }
 }
