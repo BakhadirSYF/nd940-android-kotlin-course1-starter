@@ -1,11 +1,19 @@
 package com.udacity.shoestore.viewmodels
 
+import android.text.TextUtils
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.models.Shoe
 
 class ShoeViewModel : ViewModel() {
+
+    companion object {
+        const val NO_ERROR = 0
+        const val SHOE_NAME_ERROR = 1
+        const val SHOE_SIZE_ERROR = 2
+        const val SHOE_COMPANY_ERROR = 3
+    }
 
     var shoeName = MutableLiveData<String>()
     var shoeCompany = MutableLiveData<String>()
@@ -41,12 +49,14 @@ class ShoeViewModel : ViewModel() {
     val eventOnSave: LiveData<Boolean>
         get() = _eventOnSave
 
+    // Error flags
+    private val _emptyFieldFlag = MutableLiveData<Int>()
+    val emptyFieldFlag: LiveData<Int>
+        get() = _emptyFieldFlag
+
     init {
         _shoeList.value = ArrayList()
-    }
-
-    fun addNewShoe(shoeName: String, company: String, shoeSize: String, description: String) {
-        _shoeList.value?.add(Shoe(shoeName, shoeSize.toDouble(), company, description))
+        resetFields()
     }
 
     // Methods for buttons presses
@@ -54,15 +64,35 @@ class ShoeViewModel : ViewModel() {
         _eventOnCancel.value = true
     }
 
+    // Check shoe name, company and size fields, show error if they are empty.
+    // Check shoe description field; use "-" if it's empty.
     fun onSave() {
-        _shoeList.value?.add(Shoe(shoeName.value.toString(), shoeSize.value!!.toDouble(),
-            shoeCompany.value.toString(), shoeDescription.value.toString()))
-
-        _eventOnSave.value = true
+        when {
+            TextUtils.isEmpty(shoeName.value) -> {
+                _emptyFieldFlag.value = SHOE_NAME_ERROR
+            }
+            TextUtils.isEmpty(shoeCompany.value) -> {
+                _emptyFieldFlag.value = SHOE_COMPANY_ERROR
+            }
+            TextUtils.isEmpty(shoeSize.value) -> {
+                _emptyFieldFlag.value = SHOE_SIZE_ERROR
+            }
+            else -> {
+                _emptyFieldFlag.value = NO_ERROR
+                _shoeList.value?.add(Shoe(shoeName.value.toString(),
+                    shoeSize.value!!.toDouble(),
+                    shoeCompany.value.toString(),
+                    if (TextUtils.isEmpty(shoeDescription.value.toString())) "-" else shoeDescription.value.toString()))
+                _eventOnSave.value = true
+            }
+        }
     }
 
     fun onShoeSaved() {
-        _eventOnSave.value = false
+        resetFields()
+    }
+
+    fun onSaveShoeCancelled() {
         resetFields()
     }
 
@@ -71,5 +101,8 @@ class ShoeViewModel : ViewModel() {
         shoeCompany.value = ""
         shoeSize.value = ""
         shoeDescription.value = ""
+        _emptyFieldFlag.value = NO_ERROR
+        _eventOnCancel.value = false
+        _eventOnSave.value = false
     }
 }

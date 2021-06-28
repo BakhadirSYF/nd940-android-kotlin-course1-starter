@@ -41,6 +41,7 @@ class ShoeDetailFragment : Fragment() {
 
         viewModel.eventOnCancel.observe(viewLifecycleOwner, Observer { isCancel ->
             if (isCancel) {
+                viewModel.onSaveShoeCancelled()
                 NavHostFragment.findNavController(this)
                     .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
             }
@@ -48,45 +49,24 @@ class ShoeDetailFragment : Fragment() {
 
         viewModel.eventOnSave.observe(viewLifecycleOwner, Observer { isSave ->
             if (isSave) {
-                // TODO: implement on Save button click
-                when {
-                    TextUtils.isEmpty(binding.shoeName.text.toString()) -> {
-                        binding.shoeName.error = "Please enter valid shoe name"
-                    }
-                    TextUtils.isEmpty(binding.shoeSize.text.toString()) -> {
-                        binding.shoeSize.error = "Please enter valid shoe size"
-                    }
-                    else -> {
-                        onSaveButtonClick()
-                        viewModel.onShoeSaved()
-                    }
-                }
+                onSaveButtonClick()
+                viewModel.onShoeSaved()
             }
         })
 
-        /*binding.cancelButton.setOnClickListener { view: View ->
-            view.findNavController()
-                .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
-        }*/
-
-        /*binding.saveButton.setOnClickListener { view: View ->
-            when {
-                TextUtils.isEmpty(binding.shoeName.text.toString()) -> {
+        viewModel.emptyFieldFlag.observe(viewLifecycleOwner, Observer { emptyFieldFlag ->
+            when (emptyFieldFlag) {
+                ShoeViewModel.SHOE_NAME_ERROR -> {
                     binding.shoeName.error = "Please enter valid shoe name"
                 }
-                TextUtils.isEmpty(binding.shoeSize.text.toString()) -> {
+                ShoeViewModel.SHOE_COMPANY_ERROR -> {
+                    binding.company.error = "Please enter valid company name"
+                }
+                ShoeViewModel.SHOE_SIZE_ERROR -> {
                     binding.shoeSize.error = "Please enter valid shoe size"
                 }
-                else -> {
-                    onSaveButtonClick(
-                        view, binding.shoeName.text.toString(),
-                        binding.company.text.toString(),
-                        binding.shoeSize.text.toString(),
-                        binding.description.text.toString()
-                    )
-                }
             }
-        }*/
+        })
 
         setHasOptionsMenu(true)
 
@@ -102,12 +82,6 @@ class ShoeDetailFragment : Fragment() {
     }
 
     private fun onSaveButtonClick() {
-        /*viewModel.addNewShoe(
-            shoeName,
-            if (TextUtils.isEmpty(company)) "-" else company,
-            shoeSize,
-            if (TextUtils.isEmpty(description)) "-" else description
-        )*/
         NavHostFragment.findNavController(this)
             .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
     }
