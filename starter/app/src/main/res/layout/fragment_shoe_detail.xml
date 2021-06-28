@@ -5,6 +5,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.ShoeDetailFragment">
 
+    <data>
+
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+
+        <variable
+            name="shoeViewModel"
+            type="com.udacity.shoestore.viewmodels.ShoeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,6 +37,7 @@
             style="@style/NewShoeEditText"
             android:hint="@string/hint_shoe_name"
             android:inputType="text"
+            android:text="@={shoeViewModel.shoeName}"
             app:layout_constraintStart_toStartOf="@+id/shoeNameLabel"
             app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
 
@@ -42,6 +54,7 @@
             style="@style/NewShoeEditText"
             android:hint="@string/hint_company"
             android:inputType="text"
+            android:text="@={shoeViewModel.shoeCompany}"
             app:layout_constraintStart_toStartOf="@+id/companyLabel"
             app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
 
@@ -58,6 +71,7 @@
             style="@style/NewShoeEditText"
             android:hint="@string/hint_shoe_size"
             android:inputType="numberDecimal"
+            android:text="@={shoeViewModel.shoeSize}"
             app:layout_constraintStart_toStartOf="@+id/shoeSizeLabel"
             app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel" />
 
@@ -74,6 +88,7 @@
             style="@style/NewShoeEditText"
             android:hint="@string/hint_description"
             android:inputType="text"
+            android:text="@={shoeViewModel.shoeDescription}"
             app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
             app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
 
@@ -85,6 +100,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
+            android:onClick="@{() -> shoeViewModel.onCancel()}"
             android:text="@string/button_label_cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/saveButton"
@@ -100,6 +116,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="32dp"
+            android:onClick="@{() -> shoeViewModel.onSave()}"
             android:text="@string/button_label_save"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
