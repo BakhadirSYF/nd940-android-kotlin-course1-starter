@@ -8,10 +8,6 @@
     <data>
 
         <variable
-            name="shoe"
-            type="com.udacity.shoestore.models.Shoe" />
-
-        <variable
             name="shoeViewModel"
             type="com.udacity.shoestore.viewmodels.ShoeViewModel" />
     </data>
