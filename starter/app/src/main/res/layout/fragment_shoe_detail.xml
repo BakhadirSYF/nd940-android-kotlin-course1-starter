@@ -23,27 +23,30 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:text="@string/label_shoe_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/shoeName"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/shoeName"
             style="@style/NewShoeEditText"
+            android:layout_marginEnd="32dp"
             android:hint="@string/hint_shoe_name"
             android:inputType="text"
             android:text="@={shoeViewModel.shoeName}"
-            app:layout_constraintStart_toStartOf="@+id/shoeNameLabel"
-            app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeNameLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/shoeNameLabel" />
 
         <TextView
             android:id="@+id/companyLabel"
             style="@style/NewShoeLabel"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/label_company"
-            app:layout_constraintStart_toStartOf="@+id/shoeName"
-            app:layout_constraintTop_toBottomOf="@+id/shoeName" />
+            app:layout_constraintStart_toStartOf="@+id/shoeNameLabel"
+            app:layout_constraintTop_toBottomOf="@+id/shoeNameLabel" />
 
         <EditText
             android:id="@+id/company"
@@ -51,16 +54,17 @@
             android:hint="@string/hint_company"
             android:inputType="text"
             android:text="@={shoeViewModel.shoeCompany}"
-            app:layout_constraintStart_toStartOf="@+id/companyLabel"
-            app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/companyLabel"
+            app:layout_constraintEnd_toEndOf="@+id/shoeName"
+            app:layout_constraintStart_toStartOf="@+id/shoeName" />
 
         <TextView
             android:id="@+id/shoeSizeLabel"
             style="@style/NewShoeLabel"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/label_shoe_size"
-            app:layout_constraintStart_toStartOf="@+id/company"
-            app:layout_constraintTop_toBottomOf="@+id/company" />
+            app:layout_constraintStart_toStartOf="@+id/companyLabel"
+            app:layout_constraintTop_toBottomOf="@+id/companyLabel" />
 
         <EditText
             android:id="@+id/shoeSize"
@@ -68,16 +72,17 @@
             android:hint="@string/hint_shoe_size"
             android:inputType="numberDecimal"
             android:text="@={shoeViewModel.shoeSize}"
-            app:layout_constraintStart_toStartOf="@+id/shoeSizeLabel"
-            app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/shoeSizeLabel"
+            app:layout_constraintEnd_toEndOf="@+id/company"
+            app:layout_constraintStart_toStartOf="@+id/company" />
 
         <TextView
             android:id="@+id/descriptionLabel"
             style="@style/NewShoeLabel"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:text="@string/label_description"
-            app:layout_constraintStart_toStartOf="@+id/shoeSize"
-            app:layout_constraintTop_toBottomOf="@+id/shoeSize" />
+            app:layout_constraintStart_toStartOf="@+id/shoeSizeLabel"
+            app:layout_constraintTop_toBottomOf="@+id/shoeSizeLabel" />
 
         <EditText
             android:id="@+id/description"
@@ -85,8 +90,9 @@
             android:hint="@string/hint_description"
             android:inputType="text"
             android:text="@={shoeViewModel.shoeDescription}"
-            app:layout_constraintStart_toStartOf="@+id/descriptionLabel"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionLabel" />
+            app:layout_constraintBaseline_toBaselineOf="@+id/descriptionLabel"
+            app:layout_constraintEnd_toEndOf="@+id/shoeSize"
+            app:layout_constraintStart_toStartOf="@+id/shoeSize" />
 
         <Button
             android:id="@+id/cancelButton"
