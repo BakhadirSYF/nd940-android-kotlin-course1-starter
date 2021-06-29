@@ -5,6 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.LoginFragment">
 
+    <!-- Using ConstraintLayout for more precise alignment of the views.
+    It will manifest more on different screen sizes and switching between
+    portrait and landscape modes. -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

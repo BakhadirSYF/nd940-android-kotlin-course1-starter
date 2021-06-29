@@ -11,12 +11,12 @@ import com.udacity.shoestore.helpers.CustomOnBackPressedCallback
 
 class WelcomeFragment : Fragment() {
 
-    lateinit var onBackPressedCallback: CustomOnBackPressedCallback
+    private lateinit var onBackPressedCallback: CustomOnBackPressedCallback
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         val binding: FragmentWelcomeBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_welcome,

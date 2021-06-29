@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.udacity.shoestore.InstructionsFragment">
 
+    <!-- Using LinearLayout seems like obvious choice, but I wanted to "clip" "SHOE STORE" button
+    at the bottom of the layout. To do that I would have to introduce nested LinearLayout with
+    layout_weight="1" and button as a child element, or use RelativeLayout with
+    layout_alignParentBottom="true" attribute. Using ConstraintLayout allows me to do what I wanted
+    in much easier and cleaner way. -->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

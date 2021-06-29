@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.NavHostFragment
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 import com.udacity.shoestore.helpers.CustomOnBackPressedCallback
@@ -24,7 +23,7 @@ class ShoeDetailFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
 
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail,
@@ -38,7 +37,7 @@ class ShoeDetailFragment : Fragment() {
         // the binding can observe LiveData updates
         binding.lifecycleOwner = this
 
-        viewModel.eventOnCancel.observe(viewLifecycleOwner, Observer { isCancel ->
+        viewModel.eventOnCancel.observe(viewLifecycleOwner, { isCancel ->
             if (isCancel) {
                 viewModel.onSaveShoeCancelled()
                 NavHostFragment.findNavController(this)
@@ -46,14 +45,14 @@ class ShoeDetailFragment : Fragment() {
             }
         })
 
-        viewModel.eventOnSave.observe(viewLifecycleOwner, Observer { isSave ->
+        viewModel.eventOnSave.observe(viewLifecycleOwner, { isSave ->
             if (isSave) {
                 onSaveButtonClick()
                 viewModel.onShoeSaved()
             }
         })
 
-        viewModel.emptyFieldFlag.observe(viewLifecycleOwner, Observer { emptyFieldFlag ->
+        viewModel.emptyFieldFlag.observe(viewLifecycleOwner, { emptyFieldFlag ->
             when (emptyFieldFlag) {
                 ShoeViewModel.SHOE_NAME_ERROR -> {
                     binding.shoeName.error = "Please enter valid shoe name"
